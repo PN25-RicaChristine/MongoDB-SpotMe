@@ -3,7 +3,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const port = 3231
+const port = 3030;
+const cors = require('cors');
 
 // Create express app
 const app = express();
@@ -11,6 +12,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 // Parse requests of content-type - application/json
 app.use(bodyParser.json())
+
+app.use(cors());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
